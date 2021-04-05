@@ -14,6 +14,17 @@ const routes = [
         path: '/auth',
         name: 'Auth',
         component: () => import('../views/Auth')
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import('../views/Profile')
+    },
+    {
+        path: '/test/:id',
+        name: 'TestDetail',
+        component: () => import('../views/TestDetail'),
+        props: true
     }
 ]
 

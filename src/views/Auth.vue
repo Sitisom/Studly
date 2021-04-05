@@ -9,14 +9,13 @@
       </div>
       <div class="auth-right col-12 col-lg-7">
         <div class="row h-100 justify-content-center">
-          <div class="col-11 col-lg-4">
+          <div class="col-11 col-lg-5">
             <div class="form-container">
-              <Tabs :tabs="tabs" :current-tab="currentTab" @change-tab="changeTab"></Tabs>
+              <Tabs :tabs="tabs" :current-tab="currentTab" @change-tab="changeTab" class="mb-3"></Tabs>
               <component :is="currentAuthForm"></component>
             </div>
           </div>
         </div>
-
       </div>
   </div>
 </template>
