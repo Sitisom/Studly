@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     hostname: "http://localhost:8000",
     token: "",
-    refresh_token: ""
+    refresh_token: "",
   },
   getters: {
     hostname: (state) => {
@@ -24,6 +24,9 @@ export default new Vuex.Store({
       }
       return state.token;
     },
+    getAuthHeader: (state, getters) => {
+      return {"Authorization": `Bearer ${getters.getToken}`}
+    }
   },
   mutations: {
     setToken: function(state, payload) {

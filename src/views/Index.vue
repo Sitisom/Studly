@@ -10,5 +10,12 @@
 
 export default {
   name: 'Home',
+  beforeCreate() {
+    if (this.$store.state.token) {
+      this.$router.push({name: 'Profile'})
+    } else {
+      this.$router.push({name: 'Auth'})
+    }
+  }
 }
 </script>

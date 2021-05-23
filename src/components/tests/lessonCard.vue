@@ -1,16 +1,18 @@
 <template>
     <div class="card">
-      <div class="card-body text-left">
+      <div class="d-flex flex-column card-body text-left">
         <div class="card-title">{{ title }}</div>
-        <div class="teacher">{{ teacher.first_name }} {{ teacher.last_name }}</div>
-        <div class="status">{{ rus_status }}</div>
+        <div class="mt-auto">
+          <div class="teacher">{{ teacher.first_name }} {{ teacher.last_name }}</div>
+<!--          <div class="status">{{ rus_status }}</div>-->
+        </div>
       </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: "card",
+  name: "lessonCard",
   props: ['id', 'title', 'teacher', 'status'],
   computed: {
     rus_status: function () {
@@ -37,7 +39,8 @@ export default {
     color: inherit;
     text-decoration: inherit;
   }
-  a:hover .card {
+  .card:hover {
     border-color: #007bff;
+    cursor: pointer;
   }
 </style>

@@ -16,11 +16,11 @@
           </div>
           <div class="tests row" v-if="tests.results">
             <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">
-              <card :id="test.id"
+              <lessonCard :id="test.id"
                     :title="test.title"
                     :teacher="test.teacher"
                     :count="test.count"
-                    :status="test.status"></card>
+                    :status="test.status"></lessonCard>
             </div>
           </div>
         </div>
@@ -33,11 +33,11 @@
 
 import Core from '@/views/Core'
 import Http from '@/mixins/Http'
-import card from "@/components/tests/card";
+import lessonCard from "@/components/tests/lessonCard";
 
 export default {
   name: 'Profile',
-  components: {Core, card},
+  components: {Core, lessonCard},
   mixins: [Http],
   data() {
     return {
@@ -52,7 +52,7 @@ export default {
   },
   beforeCreate() {
     if (!this.$store.state.token) {
-      this.$router.push('/auth');
+      this.$router.push({name: 'Auth'});
     }
   },
   created() {
@@ -63,8 +63,8 @@ export default {
 
   },
   methods: {
-    testDetail: function (test) {
-      this.$router.replace({name: 'TestDetail', params: {id: test.id, test: test.test.tasks}})
+    testDetail: function (obj) {
+      this.$router.push({name: 'TestDetail', params: {id: obj.id}})
     }
   }
 }

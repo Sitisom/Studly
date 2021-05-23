@@ -2,8 +2,8 @@
   <header>
     <div class="container text-left">
       <div class="row py-2">
-        <div class="logo col-11">
-          <h1>Studly</h1>
+        <div class="logo col-11" @click="$router.push('/profile')">
+            <h1>Studly</h1>
         </div>
         <div class="menu col-1">
           <button class='btn btn-danger' @click="logout">Logout</button>
@@ -36,5 +36,9 @@ export default {
 
   h1{
     border-left: 8px solid blue;
+  }
+
+  .logo {
+    cursor: pointer;
   }
 </style>
