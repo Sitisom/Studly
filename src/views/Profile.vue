@@ -1,43 +1,40 @@
 <template>
-  <Core>
-    <div class="profile-page">
-      <div class="row">
-        <div class="col py-3 text-left">
-          <div class="inner-header">
-            <h2>Личный кабинет ученика</h2>
+  <div class="profile-page">
+    <div class="row">
+      <div class="col py-3 text-left">
+        <div class="inner-header">
+          <h2>Личный кабинет ученика</h2>
+        </div>
+      </div>
+    </div>
+    <section class="row">
+      <div class="col">
+        <div class="section-header d-flex justify-content-between">
+          <h3>Пройденные тесты</h3>
+          <a href="">Все пройденные тесты</a>
+        </div>
+        <div class="tests row" v-if="tests.results">
+          <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">
+            <lessonCard :id="test.id"
+                  :title="test.title"
+                  :teacher="test.teacher"
+                  :count="test.count"
+                  :status="test.status"></lessonCard>
           </div>
         </div>
       </div>
-      <section class="row">
-        <div class="col">
-          <div class="section-header d-flex justify-content-between">
-            <h3>Пройденные тесты</h3>
-            <a href="">Все пройденные тесты</a>
-          </div>
-          <div class="tests row" v-if="tests.results">
-            <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">
-              <lessonCard :id="test.id"
-                    :title="test.title"
-                    :teacher="test.teacher"
-                    :count="test.count"
-                    :status="test.status"></lessonCard>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </Core>
+    </section>
+  </div>
 </template>
 
 <script>
 
-import Core from '@/views/Core'
 import Http from '@/mixins/Http'
 import lessonCard from "@/components/tests/lessonCard";
 
 export default {
   name: 'Profile',
-  components: {Core, lessonCard},
+  components: {lessonCard},
   mixins: [Http],
   data() {
     return {
