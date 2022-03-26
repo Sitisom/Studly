@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "lessonCard",
+  name: "LessonCard",
   props: ['id', 'title', 'teacher', 'status'],
   computed: {
     rus_status: function () {

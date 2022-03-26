@@ -1,40 +1,36 @@
 <template>
-  <div class="profile-page">
-    <div class="row">
-      <div class="col py-3 text-left">
-        <div class="inner-header">
-          <h2>Личный кабинет ученика</h2>
-        </div>
-      </div>
-    </div>
-    <section class="row">
-      <div class="col">
-        <div class="section-header d-flex justify-content-between">
-          <h3>Пройденные тесты</h3>
-          <a href="">Все пройденные тесты</a>
-        </div>
-        <div class="tests row" v-if="tests.results">
-          <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">
-            <lessonCard :id="test.id"
-                  :title="test.title"
-                  :teacher="test.teacher"
-                  :count="test.count"
-                  :status="test.status"></lessonCard>
+  <BaseView>
+    <div class="profile-page">
+      <section class="row">
+        <div class="col">
+          <div class="section-header d-flex justify-content-between">
+            <h3>Пройденные тесты</h3>
+            <a href="">Все пройденные тесты</a>
+          </div>
+          <div class="tests row" v-if="tests.results">
+            <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">
+              <LessonCard :id="test.id"
+                    :title="test.title"
+                    :teacher="test.teacher"
+                    :count="test.count"
+                    :status="test.status"></LessonCard>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
+      </section>
+    </div>
+  </BaseView>
 </template>
 
 <script>
 
 import Http from '@/mixins/Http'
-import lessonCard from "@/components/tests/lessonCard";
+import LessonCard from "@/components/tests/LessonCard";
+import BaseView from "@/components/BaseView";
 
 export default {
   name: 'Profile',
-  components: {lessonCard},
+  components: {LessonCard, BaseView},
   mixins: [Http],
   data() {
     return {
@@ -62,6 +58,10 @@ export default {
   methods: {
     testDetail: function (obj) {
       this.$router.push({name: 'TestDetail', params: {id: obj.id}})
+    },
+    logout() {
+      this.$store.commit('logout')
+      this.$router.push({name: 'Index'})
     }
   }
 }

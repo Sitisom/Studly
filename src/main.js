@@ -9,6 +9,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVue } from 'bootstrap-vue'
 import './registerServiceWorker'
 import Header from "@/components/Header";
+import Menu from "@/components/Menu";
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
@@ -18,7 +19,7 @@ new Vue({
   router,
   store,
   render: h => h(App),
-  components: { Header },
+  components: { Header, Menu },
   beforeCreate() {
     this.$store.commit('getLocalToken');
   }

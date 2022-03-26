@@ -1,7 +1,6 @@
 <template>
-  <form :action="action" method="post" @submit.prevent="submit">
+  <form :action="action" method="post" @submit.prevent="submit" class="text-left justify-content-center">
     <slot></slot>
-    <button class="btn btn-primary" type="submit">Submit</button>
   </form>
 </template>
 

@@ -1,13 +1,13 @@
 <template>
-  <BaseForm :action="action" :form="form" class="text-left" :submit="submit">
+  <BaseForm :action="action" :form="form" :submit="submit">
     <div class="form-row">
       <div class="form-group col">
-        <label for="first_name_field">First name</label>
-        <input v-model="form.first_name" id="first_name_field" type="text" class="form-control" placeholder="First name" required>
+        <label for="first_name_field">Имя</label>
+        <input v-model="form.first_name" id="first_name_field" type="text" class="form-control" required>
       </div>
       <div class="form-group col">
-        <label for="second_name_field">Second name</label>
-        <input v-model="form.last_name" id="second_name_field" type="text" class="form-control" placeholder="Second name" required>
+        <label for="second_name_field">Фамилия</label>
+        <input v-model="form.last_name" id="second_name_field" type="text" class="form-control" required>
       </div>
     </div>
     <div class="form-group">
@@ -15,16 +15,19 @@
       <input id="email-field" type="email" v-model="form.email" class="form-control">
     </div>
     <div class="form-group">
-      <label for="login-field">Username</label>
+      <label for="login-field">Логин</label>
       <input v-model="form.username" type="text" id="login-field" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="password1-field">Password</label>
+      <label for="password1-field">Пароль</label>
       <input v-model="form.password" type="password" id="password1-field" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="password2-field">Repeat password</label>
+      <label for="password2-field">Повторите пароль</label>
       <input v-model="form.password2" type="password" id="password2-field" class="form-control" required>
+    </div>
+     <div class="text-center">
+      <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
     </div>
   </BaseForm>
 </template>

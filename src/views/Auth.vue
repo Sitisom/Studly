@@ -1,16 +1,16 @@
 <template>
-    <div class="auth-form-container row" style="height: 100vh">
-      <div class="auth-left col-12 col-lg-5">
+    <div class="auth-form-container" style="height: 100vh">
+      <div class="auth-logo col-12 col-lg-5">
         <div class="auth-header">
-          <h1 class="">Studly</h1>
+          <h1>Studly</h1>
           <span>Образовательная платформа</span>
         </div>
         <div class="auth-bg-img h-100"></div>
       </div>
       <div class="auth-right col-12 col-lg-7">
         <div class="row h-100 justify-content-center">
-          <div class="col-11 col-lg-5">
-            <div class="form-container">
+          <div class="col-11 col-lg-5 d-flex align-items-center">
+            <div class="form-container w-100">
               <Tabs :tabs="tabs" :current-tab="currentTab" @change-tab="changeTab" class="mb-3"></Tabs>
               <component :is="currentAuthForm"></component>
             </div>
@@ -30,24 +30,30 @@ export default {
   components: { SignupForm, LoginForm, Tabs },
   data() {
     return {
-      tabs: ['Login', 'Signup'],
+      tabs: [["Login", "Вход"], ["Signup", "Регистрация"]],
       currentTab: "Login"
     }
   },
   methods: {
     changeTab(tab) {
-      this.currentTab = tab;
+      this.currentTab = tab[0];
     }
   },
   computed: {
     currentAuthForm() {
-      return this.currentTab + 'Form'
+      return this.currentTab + "Form"
     }
   }
 }
 </script>
 
 <style scoped>
+.auth-form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .auth-bg-img {
   background: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ),
               url("../assets/auth_img.jpg") center no-repeat;
@@ -66,7 +72,8 @@ export default {
   font-size: 64px;
 }
 
-.auth-left {
+.auth-logo {
+  display: none;
   height: 30%;
 }
 
@@ -74,8 +81,9 @@ export default {
   .form-container {
     margin-top: 25vh;
   }
-  .auth-left {
+  .auth-logo {
     height: 100%;
+    display: block;
   }
 }
 

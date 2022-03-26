@@ -1,12 +1,15 @@
 <template>
   <BaseForm :form="form" :submit="submit">
-    <div class="form-group row">
-      <label for="login-field">Login</label>
+    <div class="form-group">
+      <label for="login-field">Логин</label>
       <input v-model="form.username" type="text" id="login-field" class="form-control" name="login" required>
     </div>
-    <div class="form-group row">
-      <label for="password-field">Password</label>
+    <div class="form-group">
+      <label for="password-field">Пароль</label>
       <input v-model="form.password" type="password" id="password-field" class="form-control" name="password" required>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary" type="submit">Войти</button>
     </div>
   </BaseForm>
 </template>
@@ -21,14 +24,13 @@ export default {
   data() {
     return {
       form: {
-        username: '',
-        password: ''
+        username: this.$store.state.username,
+        password: this.$store.state.password
       }
     }
   },
   methods: {
     submit() {
-
       $.ajax({
         url: this.$store.getters.hostname + '/auth/login/',
         method: "POST",
@@ -36,6 +38,7 @@ export default {
         success: (response) => {
           this.$store.commit('setToken', response);
           this.$router.push("/profile");
+
         }
       })
     },

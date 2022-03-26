@@ -3,9 +3,9 @@
       <button
           v-for="tab in tabs"
           :key="tab"
-          :class="['tab-button', {active: currentTab === tab}]"
+          :class="['tab-button', {active: currentTab === tab[0]}]"
           @click = "$emit('change-tab', tab)"
-      >{{ tab }}</button>
+      >{{ tab[1] }}</button>
   </div>
 </template>
 

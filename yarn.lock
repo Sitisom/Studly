@@ -2685,6 +2685,14 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
+anymatch@~3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-3.1.2.tgz#c0557c096af32f106198f4f4e2a383537e378716"
+  integrity sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==
+  dependencies:
+    normalize-path "^3.0.0"
+    picomatch "^2.0.4"
+
 apollo-cache-control@^0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/apollo-cache-control/-/apollo-cache-control-0.13.0.tgz#cd63aa24a662b2fe89ef147a30df907c8061aedc"
@@ -3710,6 +3718,21 @@ check-types@^8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-8.0.3.tgz"
   integrity sha512-YpeKZngUmG65rLudJ4taU7VLkOCTMhNl/u4ctNC56LQS/zJTyNH0Lrtwm1tfTsbLlwvlfsA2d1c8vCf/Kh2KwQ==
+
+"chokidar@>=3.0.0 <4.0.0":
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
+  integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
+  dependencies:
+    anymatch "~3.1.2"
+    braces "~3.0.2"
+    glob-parent "~5.1.2"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.6.0"
+  optionalDependencies:
+    fsevents "~2.3.2"
 
 chokidar@^2.1.8:
   version "2.1.8"
@@ -5824,7 +5847,7 @@ fsevents@^1.2.7:
     bindings "^1.5.0"
     nan "^2.12.1"
 
-fsevents@~2.3.1:
+fsevents@~2.3.1, fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
@@ -5955,7 +5978,7 @@ glob-parent@^5.0.0, glob-parent@~5.1.0:
   dependencies:
     is-glob "^4.0.1"
 
-glob-parent@^5.1.0:
+glob-parent@^5.1.0, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
@@ -6514,6 +6537,11 @@ ignore@^5.1.4:
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==
+
+immutable@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.0.0.tgz#b86f78de6adef3608395efb269a91462797e2c23"
+  integrity sha512-zIE9hX70qew5qTUjSS7wi1iwj/l7+m54KWU247nhM3v806UdGj1yDndXj+IOYxxtW9zyLI+xqFNZjTuDaLUqFw==
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -9295,6 +9323,13 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
+readdirp@~3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.6.0.tgz#74a370bd857116e245b29cc97340cd431a02a6c7"
+  integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
+  dependencies:
+    picomatch "^2.2.1"
+
 recast@0.17.2:
   version "0.17.2"
   resolved "https://registry.yarnpkg.com/recast/-/recast-0.17.2.tgz#f18f18cf20bf3fad4522621a7f9c2ada37276814"
@@ -9646,6 +9681,15 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
+sass@^1.49.9:
+  version "1.49.9"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.9.tgz#b15a189ecb0ca9e24634bae5d1ebc191809712f9"
+  integrity sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
+    immutable "^4.0.0"
+    source-map-js ">=0.6.2 <2.0.0"
+
 sax@>=0.6.0, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz"
@@ -9972,6 +10016,11 @@ source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz"
   integrity sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
+
+"source-map-js@>=0.6.2 <2.0.0":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
+  integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
 source-map-resolve@^0.5.0:
   version "0.5.3"
