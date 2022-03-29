@@ -1,24 +1,50 @@
 <template>
   <div class="menu-navbar">
-    <BIconHouseFill style="font-size: 30pt"></BIconHouseFill>
+    <div class="main-icons">
+      <v-icon class="menu-item" name="home" scale="2.5" @click="$router.push({name: 'Profile'})"/>
+      <v-icon class="menu-item" name="graduation-cap" scale="2.5"></v-icon>
+      <v-icon class="menu-item" name="file-alt" scale="2"/>
+    </div>
+    <v-icon class="menu-item justify-content-end" name="sign-out-alt" scale="2.2" @click="logout"/>
   </div>
 </template>
 
 <script>
-import {BIconHouseFill} from "bootstrap-vue";
-
 export default {
   name: "Menu",
-  components: {BIconHouseFill}
+  methods: {
+    logout() {
+      this.$store.commit('logout');
+      this.$router.push('/auth');
+    }
+  }
 }
 </script>
 
 <style scoped>
   .menu-navbar {
-    min-height: 1000px;
-    width: 64px;
-    -webkit-box-shadow: 9px -2px 11px -2px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 9px -2px 11px -2px rgba(34, 60, 80, 0.2);
-    box-shadow: 9px -2px 11px -2px rgba(34, 60, 80, 0.2);
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    height: 100vh;
+    padding-top: 90px;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item {
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .menu-item:last-of-type {
+    margin-bottom: 0;
   }
 </style>

@@ -49,11 +49,11 @@ export default {
     }
   },
   created() {
-    this.http = new this.http(this.$store.getters.getToken, this.tests);
+    this.http = new this.http(this.$store.getters.getToken, this.tests)
   },
   mounted() {
-    this.http.getNew();
 
+    this.http.getNew()
   },
   methods: {
     testDetail: function (obj) {
@@ -75,4 +75,5 @@ export default {
   h3 {
     font-size: 24px;
   }
+
 </style>

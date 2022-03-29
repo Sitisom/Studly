@@ -63,15 +63,13 @@ export default {
       headers: this.$store.getters.getAuthHeader,
       method: 'GET',
       success: (data) => {
-        console.log(data);
         this.lesson = data;
         this.loading = false;
       }
     })
   },
   methods:{
-    answer(task_id, e) {
-      console.log(e.target);
+    answer(task_id) {
       let answer = $('input[name=task-' + task_id + ']:checked');
       $.ajax({
         url: `${this.$store.getters.hostname}/tests/task/${task_id}/`,

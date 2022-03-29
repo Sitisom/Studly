@@ -1,37 +1,34 @@
 <template>
   <header>
-    <div class="text-left">
-      <div class="row py-2">
-        <div class="logo col-11" @click="$router.push('/profile')">
-            <h1>Studly</h1>
-        </div>
-        <div class="col-1">
-          <button class='btn btn-danger' @click="logout">Выйти</button>
-        </div>
-      </div>
+    <div class="logo" @click="$router.push('/profile')">
+        <h1>Studly</h1>
+    </div>
+    <div class="user-creds">
+      <img src="" alt="">
+      Анна Захарова
     </div>
   </header>
 </template>
 
 <script>
+
 export default {
-  name: "Header",
-  methods: {
-    logout: function () {
-      this.$store.commit('logout');
-      this.$router.push('/auth');
-    }
-  }
+  name: "Header"
 }
 </script>
 
 <style scoped>
   header {
     width: 100%;
-    padding: 0 15px;
-    -webkit-box-shadow: 0 8px 14px -1px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0 8px 14px -1px rgba(34, 60, 80, 0.2);
-    box-shadow: 0 8px 14px -1px rgba(34, 60, 80, 0.2);
+    height: 72px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 16px 12px 0;
+    align-items: center;
+    /*padding: 0 15px;*/
+    /*box-shadow: 0 8px 14px -1px rgba(34, 60, 80, 0.2);*/
   }
 
   h1{
@@ -39,6 +36,11 @@ export default {
   }
 
   .logo {
+    margin-left: -45px;
+  }
+
+  .logo h1 {
     cursor: pointer;
+    width: fit-content;
   }
 </style>

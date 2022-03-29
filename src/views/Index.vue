@@ -12,7 +12,11 @@ export default {
   name: 'Home',
   beforeCreate() {
     if (this.$store.state.token) {
-      this.$router.push({name: 'Profile'})
+      if (this.$store.state.user.profile && this.$store.state.user.profile.subscription) {
+        this.$router.push({name: 'Profile'})
+      } else {
+        this.$router.push({name: 'RatePlan'})
+      }
     } else {
       this.$router.push({name: 'Auth'})
     }

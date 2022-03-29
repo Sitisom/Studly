@@ -1,11 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import user from "@/store/modules/user";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     hostname: "http://localhost:8000",
+    endpoints: {
+      profile: {
+          list: '/core/profile',
+          my: '/core/profile/my'
+      },
+    },
     token: "",
     refresh_token: "",
   },
@@ -29,23 +36,23 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setToken: function(state, payload) {
+    setToken(state, payload) {
       state.token = payload.access;
       state.refresh_token = payload.refresh;
 
       window.localStorage.setItem('token', payload.access)
     },
-    getLocalToken: function (state) {
+    setLocalToken(state) {
       state.token = window.localStorage.getItem('token');
     },
-    logout: function (state) {
+    logout(state) {
       state.token = "";
       state.refresh_token = "";
       window.localStorage.removeItem('token');
     }
   },
-  actions: {
-  },
+  actions: {},
   modules: {
+    user
   }
 })
