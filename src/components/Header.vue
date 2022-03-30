@@ -4,8 +4,8 @@
         <h1>Studly</h1>
     </div>
     <div class="user-creds">
-      <img src="" alt="">
-      Анна Захарова
+      <img class="user-avatar" :src="$store.state.hostname + $store.state.user.profile.avatar" alt="">
+      <span>{{ $store.state.user.profile.full_name }}</span>
     </div>
   </header>
 </template>
@@ -42,5 +42,12 @@ export default {
   .logo h1 {
     cursor: pointer;
     width: fit-content;
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
   }
 </style>

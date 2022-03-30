@@ -1,7 +1,7 @@
 <template>
   <div class="menu-navbar">
     <div class="main-icons">
-      <v-icon class="menu-item" name="home" scale="2.5" @click="$router.push({name: 'Profile'})"/>
+      <v-icon class="menu-item" style="color: red" name="home" scale="2.5" @click="$router.push({name: 'Profile'})"/>
       <v-icon class="menu-item" name="graduation-cap" scale="2.5"></v-icon>
       <v-icon class="menu-item" name="file-alt" scale="2"/>
     </div>
@@ -31,6 +31,7 @@ export default {
     padding-bottom: 15px;
     align-items: center;
     justify-content: space-between;
+    color: gray;
   }
 
   .main-icons {

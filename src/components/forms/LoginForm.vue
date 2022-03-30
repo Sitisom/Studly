@@ -32,13 +32,12 @@ export default {
   methods: {
     submit() {
       $.ajax({
-        url: this.$store.getters.hostname + '/auth/login/',
+        url: this.$store.state.hostname + this.$store.state.endpoints.auth.login,
         method: "POST",
         data: JSON.parse(JSON.stringify(this.form)),
         success: (response) => {
-          this.$store.commit('setToken', response);
-          this.$router.push("/profile");
-
+          this.$store.commit("setToken", response);
+          this.$router.push({name: "Index"});
         }
       })
     },

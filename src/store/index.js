@@ -9,9 +9,15 @@ export default new Vuex.Store({
     hostname: "http://localhost:8000",
     endpoints: {
       profile: {
-          list: '/core/profile',
-          my: '/core/profile/my'
+          list: "/core/profile",
+          my: "/core/profile/my"
       },
+      auth: {
+        login: "/auth/login/"
+      },
+      rate_plan: {
+        list: "/course/plan"
+      }
     },
     token: "",
     refresh_token: "",
