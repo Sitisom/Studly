@@ -16,7 +16,8 @@ export default new Vuex.Store({
         login: "/auth/login/"
       },
       rate_plan: {
-        list: "/course/plan"
+        list: "/course/rate-plan",
+        purchase: "/course/rate-plan/purchase/"
       }
     },
     token: "",

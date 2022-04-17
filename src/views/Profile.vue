@@ -4,8 +4,8 @@
       <section class="row">
         <div class="col">
           <div class="section-header d-flex justify-content-between">
-            <h3>Подписки</h3>
-<!--            <a href="">Все пройденные тесты</a>-->
+            <h1>Подписки</h1>
+            <router-link :to="{ name: 'Course'}">Посмотреть все курсы</router-link>
           </div>
           <div class="tests row" v-if="tests.results">
             <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">

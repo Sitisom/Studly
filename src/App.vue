@@ -10,4 +10,8 @@
   text-align: center;
   color: #2c3e50;
 }
+
+h1 {
+  font-size: 2rem !important;
+}
 </style>

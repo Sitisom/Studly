@@ -28,6 +28,8 @@ new Vue({
 
     if (this.$store.getters.getToken) {
       this.$store.dispatch('user/getProfile')
+    } else {
+      this.$router.push({name: 'Auth'})
     }
   }
 }).$mount('#app')

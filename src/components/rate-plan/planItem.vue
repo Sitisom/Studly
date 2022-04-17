@@ -1,23 +1,37 @@
 <template>
   <div class="plan-item" :class="{is_active:'active'}">
     <h3>{{ title }}</h3>
-    <p>{{ description }}</p>
-    <div class="price-block">
-      <span>{{ price > 0 ? price + " руб.": "Бесплатно" }}</span><br>
-      <span>{{ by_month ? "На месяц": "Навсегда" }}</span>
-    </div>
-    <div class="buttons-block">
-      <button class="btn purchase-button" v-if="!is_active">Купить</button>
-      <div class="btn active-button">Активно</div>
+    <div class="desc-block">
+      <h6>Описание</h6>
+      <p v-html="description"></p>
     </div>
 
+    <div class="bottom-block">
+      <div class="price-block">
+        <span>{{ isFree ? price + " руб.": "Бесплатно" }}</span><br>
+        <span>{{ isFree ? "На месяц": "Навсегда" }}</span>
+      </div>
+      <div class="buttons-block">
+        <div v-if="!current && order < currentPlan.id" class="btn active-button">Недоступно</div>
+        <button v-else-if="!current"
+                class="btn purchase-button"
+                @click="$emit('purchase', id, price)">
+          Купить</button>
+        <div v-else class="btn active-button">Активно</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "planItem",
-  props: ["title", "description", "price", "by_month", "is_active"]
+  props: ["id", "title", "description", "price", "by_month", "is_active", "current", "order", "currentPlan"],
+  computed: {
+    isFree() {
+      return this.price !== 0
+    }
+  }
 }
 </script>
 
@@ -45,5 +59,13 @@ export default {
   background-color: lightgray;
   color: gray;
   cursor: none;
+}
+
+.desc-block {
+  margin-top: 16px;
+}
+
+.bottom-block {
+  margin-top: auto;
 }
 </style>
