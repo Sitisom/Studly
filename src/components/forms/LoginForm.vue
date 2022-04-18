@@ -16,7 +16,7 @@
 
 <script>
 import BaseForm from "@/components/forms/BaseForm";
-import $ from 'jquery'
+import axios from "axios";
 
 export default {
   name: "LoginForm",
@@ -31,15 +31,14 @@ export default {
   },
   methods: {
     submit() {
-      $.ajax({
-        url: this.$store.state.hostname + this.$store.state.endpoints.auth.login,
-        method: "POST",
-        data: JSON.parse(JSON.stringify(this.form)),
-        success: (response) => {
-          this.$store.commit("setToken", response);
-          this.$router.push({name: "Index"});
-        }
-      })
+      axios.post(
+    this.$store.state.hostname + this.$store.state.endpoints.auth.login,
+        JSON.parse(JSON.stringify(this.form)),
+      ).then(response => {
+        console.log(response)
+        this.$store.commit("setToken", response.data);
+        this.$router.push({name: "Index"});
+      }).catch(error => Object.keys(error.response.data).forEach(key => this.$toast.error(error.response.data[key])))
     },
   },
 }

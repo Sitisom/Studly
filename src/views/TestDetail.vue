@@ -59,7 +59,7 @@ export default {
   created() {
     this.loading = true;
     $.ajax({
-      url: `${this.$store.getters.hostname}/tests/assignments/${this.$route.params.id}`,
+      url: `${this.$store.state.hostname}/tests/assignments/${this.$route.params.id}`,
       headers: this.$store.getters.getAuthHeader,
       method: 'GET',
       success: (data) => {
@@ -72,7 +72,7 @@ export default {
     answer(task_id) {
       let answer = $('input[name=task-' + task_id + ']:checked');
       $.ajax({
-        url: `${this.$store.getters.hostname}/tests/task/${task_id}/`,
+        url: `${this.$store.state.hostname}/tests/task/${task_id}/`,
         method: 'PUT',
         headers: this.$store.getters.getAuthHeader,
         data: {task_id, answer: answer.val()},

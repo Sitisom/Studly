@@ -2,7 +2,7 @@
   <div class="tabs-container">
       <button
           v-for="tab in tabs"
-          :key="tab"
+          :key="tab[1]"
           :class="['tab-button', {active: currentTab === tab[0]}]"
           @click = "$emit('change-tab', tab)"
       >{{ tab[1] }}</button>

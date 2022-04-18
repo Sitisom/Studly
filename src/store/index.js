@@ -13,20 +13,21 @@ export default new Vuex.Store({
           my: "/core/profile/my"
       },
       auth: {
-        login: "/auth/login/"
+        login: "/auth/login/",
+        register: "/auth/register/"
       },
       rate_plan: {
         list: "/course/rate-plan",
         purchase: "/course/rate-plan/purchase/"
+      },
+      course: {
+        list: "/course",
       }
     },
     token: "",
     refresh_token: "",
   },
   getters: {
-    hostname: (state) => {
-      return state.hostname
-    },
     getToken: (state) => {
       if (state.token) return state.token
       else {

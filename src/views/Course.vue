@@ -5,7 +5,13 @@
         <h1>Курсы</h1>
         <router-link :to="{ name: 'RatePlan'}">Улучшить подписку?</router-link>
       </div>
-
+      <div class="courses-list">
+        <CourseCard
+            v-for="course in courses.results"
+            v-bind="course"
+            :key="course.id"
+        />
+      </div>
     </div>
   </BaseView>
 </template>
@@ -13,15 +19,16 @@
 <script>
 import BaseView from "@/components/BaseView";
 import Http from "@/mixins/Http";
+import CourseCard from "@/components/course/CourseCard";
 export default {
   name: "Courses",
-  components: {BaseView},
-  mixins: {Http},
+  components: {BaseView, CourseCard},
+  mixins: [Http],
   data() {
     return {
       courses: {
         results: [],
-        url: "",
+        url: this.$store.state.hostname + this.$store.state.endpoints.course.list,
         next: "",
         count: 0,
         loading: false

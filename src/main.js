@@ -12,10 +12,13 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Icon from "vue-awesome/components/Icon";
 import 'vue-awesome/icons'
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
+Vue.use(VueToast)
 Vue.component('v-icon', Icon)
 
 new Vue({
@@ -27,7 +30,14 @@ new Vue({
     this.$store.commit('setLocalToken');
 
     if (this.$store.getters.getToken) {
-      this.$store.dispatch('user/getProfile')
+      axios.get(
+        this.$store.state.hostname + this.$store.state.endpoints.profile.my,
+        {headers: this.$store.getters.getAuthHeader}
+      ).then((resp) => {
+        this.$store.commit('user/setProfile', resp.data)
+        // let currentRoute = this.$router.currentRoute
+        // this.$router.push({name: currentRoute && currentRoute.name !== 'Auth'? currentRoute.name: 'Index'})
+      })
     } else {
       this.$router.push({name: 'Auth'})
     }

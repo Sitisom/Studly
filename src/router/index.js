@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../views/Index'
 
 Vue.use(VueRouter)
 
@@ -8,7 +7,7 @@ const routes = [
     {
         path: '/',
         name: 'Index',
-        component: Index
+        component: () => import('../views/Index')
     },
     {
         path: '/auth',
@@ -26,7 +25,7 @@ const routes = [
         component: () => import('../views/RatePlan')
     },
     {
-        path: '/test/:id',
+        path: '/lesson/:id',
         name: 'TestDetail',
         component: () => import('../views/TestDetail'),
         props: true

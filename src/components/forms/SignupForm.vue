@@ -35,7 +35,7 @@
 <script>
 
 import BaseForm from "@/components/forms/BaseForm";
-import $ from "jquery";
+import axios from "axios";
 
 export default {
   name: "SignupForm",
@@ -55,15 +55,13 @@ export default {
   },
   methods: {
     submit() {
-      $.ajax({
-        url: this.$store.getters.hostname + '/auth/register/',
-        method: "POST",
-        data: JSON.parse(JSON.stringify(this.form)),
-        success: (response) => {
-          this.$store.commit('setToken', response);
-          this.$router.push("/profile");
-        }
-      })
+      axios.post(
+        this.$store.state.hostname + this.$store.state.endpoints.auth.register,
+        JSON.parse(JSON.stringify(this.form)),
+      ).then((response) => {
+        this.$store.commit('setToken', response);
+        this.$router.push("/profile");
+      }).catch(error => Object.keys(error.response.data).forEach(key => this.$toast.error(error.response.data[key])))
     },
   },
 }

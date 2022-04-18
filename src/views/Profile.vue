@@ -1,20 +1,18 @@
 <template>
   <BaseView>
     <div class="profile-page">
-      <section class="row">
-        <div class="col">
-          <div class="section-header d-flex justify-content-between">
-            <h1>Подписки</h1>
-            <router-link :to="{ name: 'Course'}">Посмотреть все курсы</router-link>
-          </div>
-          <div class="tests row" v-if="tests.results">
-            <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">
-              <LessonCard :id="test.id"
-                    :title="test.title"
-                    :teacher="test.teacher"
-                    :count="test.count"
-                    :status="test.status"></LessonCard>
-            </div>
+      <section class="">
+        <div class="section-header">
+          <h1>Ваши подписки</h1>
+          <router-link :to="{ name: 'Course'}">Посмотреть все курсы</router-link>
+        </div>
+        <div class="tests row" v-if="tests.results">
+          <div class='col-6 col-md-3' v-for="test in tests.results" :key="test.id" @click="testDetail(test)">
+            <LessonCard :id="test.id"
+                  :title="test.title"
+                  :teacher="test.teacher"
+                  :count="test.count"
+                  :status="test.status"></LessonCard>
           </div>
         </div>
       </section>
@@ -38,7 +36,7 @@ export default {
         count: 0,
         results: [],
         next: '',
-        url: this.$store.getters.hostname + '/tests/assignments',
+        url: this.$store.state.hostname + '/tests/assignments',
         loading: false
       }
     }
@@ -76,4 +74,12 @@ export default {
     font-size: 24px;
   }
 
+  .profile-page {
+    width: 100%
+  }
+  .section-header {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 </style>

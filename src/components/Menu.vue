@@ -1,11 +1,35 @@
 <template>
   <div class="menu-navbar">
     <div class="main-icons">
-      <v-icon class="menu-item" style="color: red" name="home" scale="2.5" @click="$router.push({name: 'Profile'})"/>
-      <v-icon class="menu-item" name="graduation-cap" scale="2.5" @click="$router.push({name: 'Course'})"></v-icon>
-      <v-icon class="menu-item" name="file-alt" scale="2"/>
+      <router-link :to="{name: 'Profile'}" class="menu-item">
+        <v-icon
+          name="home"
+          scale="2.5"
+        />
+      </router-link>
+      <router-link :to="{name: 'Course'}" class="menu-item">
+        <v-icon
+          name="graduation-cap"
+          scale="2.5"
+        />
+      </router-link>
+<!--      <router-link to="" class="menu-item">-->
+<!--        <v-icon-->
+<!--          name="file-alt"-->
+<!--          scale="2"-->
+<!--        />-->
+<!--      </router-link>-->
     </div>
-    <v-icon class="menu-item justify-content-end" name="sign-out-alt" scale="2.2" @click="logout"/>
+
+    <div class="menu-item">
+      <v-icon
+          class="justify-content-end"
+          name="sign-out-alt"
+          scale="2.2"
+          @click="logout"
+      />
+    </div>
+
   </div>
 </template>
 
@@ -38,14 +62,20 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .menu-item {
     cursor: pointer;
-    margin-bottom: 20px;
+    padding: 10px;
   }
 
   .menu-item:last-of-type {
+    padding: 10px;
     margin-bottom: 0;
+  }
+
+  .menu-item.router-link-active {
+    background-color: lightgray;
   }
 </style>

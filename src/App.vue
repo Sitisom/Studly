@@ -7,7 +7,6 @@
 <style>
 #app {
   font-family: Helvetica Neue, Arial, Roboto;
-  text-align: center;
   color: #2c3e50;
 }
 
