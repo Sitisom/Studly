@@ -34,6 +34,22 @@ const routes = [
         path: '/course',
         name: 'Course',
         component: () => import('../views/Course')
+    },
+    {
+        path: '/course/:id',
+        name: 'CourseDetail',
+        component: () => import('../views/CourseDetail'),
+        props: true
+    },
+    {
+        path: '/lesson',
+        name: 'Lesson',
+        component: () => import('../views/Lesson')
+    },
+    {
+        path: '/lesson/:id',
+        name: 'LessonDetail',
+        component: () => import('../views/LessonDetail')
     }
 ]
 

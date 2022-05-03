@@ -1,5 +1,5 @@
 <template>
-  <div class="difficulty-bars">
+  <div class="difficulty-bars" :style="{'height': maxHeight}">
     <div class="first"></div>
     <div class="second"></div>
     <div class="third"></div>
@@ -9,7 +9,16 @@
 <script>
 export default {
   name: "Difficulty",
-  props: ["difficulty"]
+  props: {
+    difficulty: {
+      type: Number,
+      default: 0
+    },
+    maxHeight: {
+      type: String,
+      default: "15px"
+    }
+  }
 }
 </script>
 
@@ -17,12 +26,15 @@ export default {
 .difficulty-bars {
   display: flex;
   flex-direction: row;
-  height: 30px;
+  height: 20px;
+  align-items: end;
 }
 
 .difficulty-bars > div {
   width: 4px;
-  border: 1px black solid;
+  border: 0.3px black solid;
+  margin-right: 2px;
+  /*max-height: 15px;*/
 }
 
 .first {
@@ -30,7 +42,7 @@ export default {
   background-color: green;
 }
 .second {
-  height: 60%;
+  height: 50%;
 }
 .third {
   height: 100%;

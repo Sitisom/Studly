@@ -13,12 +13,18 @@
           scale="2.5"
         />
       </router-link>
-<!--      <router-link to="" class="menu-item">-->
-<!--        <v-icon-->
-<!--          name="file-alt"-->
-<!--          scale="2"-->
-<!--        />-->
-<!--      </router-link>-->
+      <router-link :to="{name: 'Lesson'}" class="menu-item">
+        <v-icon
+          name="book-open"
+          scale="2.5"
+        />
+      </router-link>
+      <router-link :to="{name: 'RatePlan'}" class="menu-item">
+        <v-icon
+          name="briefcase"
+          scale="2.5"
+        />
+      </router-link>
     </div>
 
     <div class="menu-item">

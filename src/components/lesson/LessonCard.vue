@@ -1,36 +1,34 @@
 <template>
-  <router-link :to="{name: 'CourseDetail', params: {id: id}}" class="course-card">
+  <router-link :to="{name: 'LessonDetail'}" class="lesson-card">
     <div class="card-top">
       <div class="tags">
-        <div class="rate-plan-tag">{{rate_plan.title}}</div>
-        <div class="subscribed-tag" v-if="subscribed">Вы подписаны!</div>
+        <div class="tag">{{course}}</div>
+<!--        <div class="subscribed-tag" v-if="subscribed">Вы подписаны!</div>-->
       </div>
-
-      <img :src="image" alt="">
+      <img :src="$store.state.hostname + image" alt="">
     </div>
     <div class="card-bottom">
       <h6>{{title}}</h6>
-      <div class="d-flex flex-row justify-content-between">
-        <span>{{subject}}</span>
-        <Difficulty :difficulty="difficulty"/>
-      </div>
+      <span>Тема: {{topic}}</span>
     </div>
   </router-link>
 </template>
 
 <script>
-import Difficulty from "@/components/course/Difficulty";
-
 export default {
-  name: 'CourseCard',
-  components: {Difficulty,},
-
-  props: ['id', 'title', 'image', 'subject', 'difficulty', 'rate_plan', 'subscribed']
+  name: "LessonCard",
+  props: {
+    title: String,
+    topic: String,
+    course: String,
+    image: String,
+    has_homework: Boolean,
+  }
 }
 </script>
 
 <style scoped>
-.course-card {
+.lesson-card {
   display: block;
   text-decoration: none;
   color: black;
@@ -39,13 +37,15 @@ export default {
   background-color: white;
 }
 
-.course-card img {
+.card-top img {
   border-radius: 8px 8px 0 0;
   max-height: 180px;
 }
 
 .card-bottom {
   padding: 12px 6px;
+  background-color: white;
+  border-radius: 0 0 8px 8px;
 }
 
 .tags {
@@ -64,12 +64,8 @@ export default {
   margin: 4px 0 0 4px;
 }
 
-.rate-plan-tag {
+.tag {
   background-color: darkgray;
   padding: 0 4px;
-}
-
-.subscribed-tag {
-  background-color: green;
 }
 </style>

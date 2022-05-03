@@ -21,7 +21,11 @@ export default new Vuex.Store({
         purchase: "/course/rate-plan/purchase/"
       },
       course: {
-        list: "/course",
+        list: "/course/",
+        subscribe: "/course/subscribe/"
+      },
+      lesson: {
+        list: "/lesson/",
       }
     },
     token: "",

@@ -24,8 +24,8 @@ export default {
 
 <style>
   main {
-    display: flex;
-    flex-direction: row;
+    /*display: flex;*/
+    /*flex-direction: row;*/
     background-color: #EAEAEAD6;
     min-height: 92vh;
     border-radius: 8px 0 0 0;

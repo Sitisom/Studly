@@ -2,7 +2,13 @@
 export default {
   namespaced: true,
   state: {
-    profile: {}
+    profile: {
+      subscription: {
+        rate_plan: {
+          order: 10
+        }
+      }
+    }
   },
   getters: {
 
