@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'LessonDetail'}" class="lesson-card">
+  <router-link :to="{name: 'LessonDetail', params: {id: id}}" class="lesson-card">
     <div class="card-top">
       <div class="tags">
         <div class="tag">{{course}}</div>
@@ -18,6 +18,7 @@
 export default {
   name: "LessonCard",
   props: {
+    id: Number,
     title: String,
     topic: String,
     course: String,

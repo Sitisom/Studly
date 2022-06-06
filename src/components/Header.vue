@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo" @click="$router.push('/profile')">
-        <h1>Studly</h1>
+        <h1>Result100</h1>
     </div>
     <div class="user-creds">
       <img class="user-avatar" :src="$store.state.hostname + $store.state.user.profile.avatar" alt="">

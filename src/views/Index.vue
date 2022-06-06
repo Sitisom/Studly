@@ -6,7 +6,7 @@
 
 export default {
   name: 'Home',
-  beforeCreate() {
+  created() {
     if (this.$store.state.token) {
       if (this.$store.state.user.profile && this.$store.state.user.profile.subscriptions) {
         this.$router.push({name: 'Profile'})

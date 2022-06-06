@@ -24,12 +24,12 @@ const routes = [
         name: 'RatePlan',
         component: () => import('../views/RatePlan')
     },
-    {
-        path: '/lesson/:id',
-        name: 'TestDetail',
-        component: () => import('../views/TestDetail'),
-        props: true
-    },
+    // {
+    //     path: '/lesson/:id',
+    //     name: 'TestDetail',
+    //     component: () => import('../views/TestDetail'),
+    //     props: true
+    // },
     {
         path: '/course',
         name: 'Course',
@@ -49,7 +49,14 @@ const routes = [
     {
         path: '/lesson/:id',
         name: 'LessonDetail',
-        component: () => import('../views/LessonDetail')
+        component: () => import('../views/LessonDetail'),
+        props: true
+    },
+    {
+        path: '/test/:id',
+        name: 'TestDetails',
+        component: () => import('../views/TestDetail'),
+        props: true
     }
 ]
 

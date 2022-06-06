@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import user from "@/store/modules/user";
+import lesson from '@/store/modules/lesson'
 
 Vue.use(Vuex)
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
       },
       auth: {
         login: "/auth/login/",
+        refresh: "/auth/login/refresh/",
         register: "/auth/register/"
       },
       rate_plan: {
@@ -65,6 +67,7 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {
-    user
+    user,
+    lesson
   }
 })

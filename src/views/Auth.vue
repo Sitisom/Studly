@@ -2,7 +2,7 @@
     <div class="auth-form-container" style="height: 100vh">
       <div class="auth-logo col-12 col-lg-5">
         <div class="auth-header">
-          <h1>Studly</h1>
+          <h1>Result100</h1>
           <span>Образовательная платформа</span>
         </div>
         <div class="auth-bg-img h-100"></div>
